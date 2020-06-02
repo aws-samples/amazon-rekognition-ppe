@@ -205,22 +205,6 @@ Resources:
               StringEquals:
                 "cognito-identity.amazonaws.com:aud": !Ref CognitoIdentityPool
   # # Lambdas
-  # IndexFaceFunction:
-  #   Type: AWS::Serverless::Function
-  #   Properties:
-  #     Handler: index.indexHandler
-  #     CodeUri: ../backend/functions/detect/
-  #     Events:
-  #       Get:
-  #         Type: Api
-  #         Properties:
-  #           Path: /faces/index
-  #           Method: post
-  #     Policies:
-  #       - DynamoDBWritePolicy:
-  #           TableName: !Ref FacesTable
-  #       - RekognitionWriteOnlyAccessPolicy:
-  #           CollectionId: !Ref ResourcePrefix
 
   ProcessImageFunction:
     Type: AWS::Serverless::Function
