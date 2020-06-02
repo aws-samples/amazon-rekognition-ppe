@@ -60,16 +60,6 @@ Parameters:
     Description: Creates a username to be used for Authentication. It needs to be an e-mail address.
     Type: String
     AllowedPattern: ^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$
-  MinConfidence:
-    Description: Specifies the minimum confidence level for the labels to return
-    Type: Number
-    Default: 85
-    MinValue: 0
-    MaxValue: 100
-  # ObjectsOfInterestLabels:
-  #   Description: Comma-delimited list of labels used to detect Objects of interest
-  #   Type: CommaDelimitedList
-  #   Default: "Mobile Phone,Cell Phone"
   ResourcePrefix:
     Description: AWS Resources are named based on the value of this parameter. You must customise this if you are launching more than one instance of the stack within the same account.
     Type: String
