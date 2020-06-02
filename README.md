@@ -49,8 +49,6 @@ TODO TABLE
 
    - **Stack Name:** (Default: <TODO>) This is the name that is used to refer to this stack in CloudFormation once deployed.
    - **AdminEmail:** The email address you wish to setup as the initial user of this Amazon Rekognition PPE Demo deployment.
-   - **MinConfidence:** (Default: 85) Specifies the minimum confidence level for the labels to return.
-   - **ObjectsOfInterestLabels** (Default "Mobile Phone,Cell Phone"): Comma-delimited list of labels used to detect Objects of interest.
    - **CreateCloudFrontDistribution** (Default: true) Creates a CloudFront distribution for accessing the web interface of the solution.
    - **ResourcePrefix:** (Default: <TODO>) Resource prefix to apply to resource names when creating statically named resources.
 
