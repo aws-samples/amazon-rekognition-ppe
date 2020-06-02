@@ -208,7 +208,7 @@ const searchForIndexedFaces = async (imageBytes) => {
   return faceMatchTest;
 };
 
-const MockDetectPPE = async (imageBytes) => {
+const mockDetectPPE = async (imageBytes) => {
   return {
     PersonalSafetyModelVersion: "1.0",
     Persons: [
