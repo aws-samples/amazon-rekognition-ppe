@@ -14,7 +14,7 @@ export default ({ enabled, onClick }) => {
       disabled={!enabled}
       size="sm"
     >
-      {started ? "Stop" : "Start"} Virtual Proctor
+      {started ? "Stop" : "Start"}
     </Button>
   );
 };
