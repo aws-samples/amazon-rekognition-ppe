@@ -14,7 +14,7 @@ const {
 } = process.env;
 
 const CONFIG_FILENAME = "settings.js";
-const SOLUTION_KEY = `amazon-rekognition-virtual-proctor/v${VERSION}`;
+const SOLUTION_KEY = `amazon-rekognition-ppe/v${VERSION}`;
 const FRONTEND_PATH = `${SOLUTION_KEY}/frontend.zip`;
 
 const ACL =
