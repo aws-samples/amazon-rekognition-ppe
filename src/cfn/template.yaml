@@ -253,17 +253,6 @@ Resources:
               Action: s3:GetObject
               Resource: !Sub arn:aws:s3:::solution-builders-${AWS::Region}/*
 
-  # FacesTable:
-  #   Type: AWS::DynamoDB::Table
-  #   Properties:
-  #     AttributeDefinitions:
-  #       - AttributeName: ExternalImageId
-  #         AttributeType: S
-  #     KeySchema:
-  #       - AttributeName: ExternalImageId
-  #         KeyType: HASH
-  #     BillingMode: PAY_PER_REQUEST
-
   CloudFrontOriginAccessIdentity:
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
     Condition: WithCloudFront
