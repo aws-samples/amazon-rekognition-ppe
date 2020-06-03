@@ -143,8 +143,7 @@ const detectPPE = async (imageBytes) => {
 exports.processHandler = async (event) => {
   const body = JSON.parse(event.body);
   const imageBytes = Buffer.from(body.image, "base64");
-
-  const result = await Promise.all([fetchFaces(imageBytes)]);
+  const result = await Promise.all([detectPPE(imageBytes)]);
 
   return respond(200, result.flat());
 };
