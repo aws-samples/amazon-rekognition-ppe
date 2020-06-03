@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: "2010-09-09"
-Description: This template deploys the Amazon Rekognition PPE Demo
+Description: This template deploys the Amazon Rekognition PPE Demo (uksb-1qpqs27gu)
 Transform: AWS::Serverless-2016-10-31
 
 Globals:
