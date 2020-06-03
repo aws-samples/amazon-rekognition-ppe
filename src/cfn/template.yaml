@@ -252,11 +252,6 @@ Resources:
             - Effect: Allow
               Action: s3:GetObject
               Resource: !Sub arn:aws:s3:::solution-builders-${AWS::Region}/*
-            - Effect: Allow
-              Action:
-                - rekognition:CreateCollection
-                - rekognition:DeleteCollection
-              Resource: !Sub arn:aws:rekognition:${AWS::Region}:${AWS::AccountId}:collection/${ResourcePrefix}
 
   # FacesTable:
   #   Type: AWS::DynamoDB::Table
