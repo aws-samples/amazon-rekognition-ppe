@@ -1,13 +1,7 @@
 const AWS = require("aws-sdk");
 const uuid = require("uuid").v4;
 
-const {
-  COLLECTION_ID,
-  FACES_TABLENAME,
-  MIN_CONFIDENCE,
-  OBJECTS_OF_INTEREST_LABELS,
-  REGION,
-} = process.env;
+const { REGION } = process.env;
 
 const rekognition = new AWS.Rekognition({ region: REGION });
 const dynamo = new AWS.DynamoDB({ region: REGION });
