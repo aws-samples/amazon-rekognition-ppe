@@ -9,10 +9,6 @@ Globals:
     Timeout: 30
     Environment:
       Variables:
-        COLLECTION_ID: !Ref ResourcePrefix
-        # FACES_TABLENAME: !Ref FacesTable
-        MIN_CONFIDENCE: !Ref MinConfidence
-        # OBJECTS_OF_INTEREST_LABELS: !Join [",", !Ref ObjectsOfInterestLabels]
         REGION: !Ref AWS::Region
         VERSION: "0.1"
   Api:
