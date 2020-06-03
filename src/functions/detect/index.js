@@ -76,7 +76,7 @@ const detectPPE = async (imageBytes) => {
             ],
           },
           {
-            BodyPart: "Head",
+            Name: "Head",
             Confidence: 99.44324232,
             Equipments: [
               {
@@ -96,7 +96,7 @@ const detectPPE = async (imageBytes) => {
             ],
           },
           {
-            BodyPart: "Left Hand",
+            Name: "Left Hand",
             Confidence: 99.898934,
             Equipments: [
               {
@@ -116,7 +116,7 @@ const detectPPE = async (imageBytes) => {
             ],
           },
           {
-            BodyPart: "Right Hand",
+            Name: "Right Hand",
             Confidence: 98.32423234,
             Equipments: [
               {
