@@ -84,7 +84,7 @@ To start, run `npm install`.
 
 ## Working with CloudFormation
 
-The CloudFormation source code is located inside the `src/cfn` directory. The template uses a custom resource for making some initial API calls to Amazon Rekognition and to populate the S3 bucket with the Web UI's static resources. The lambda source code is located inside the `src/functions/setup` directory.
+The CloudFormation source code is located inside the `src/cfn` directory. The template uses a custom resource for populating the S3 bucket with the Web UI's static resources. The lambda source code is located inside the `src/functions/setup` directory.
 
 ## Working with the Web UI
 
