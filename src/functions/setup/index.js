@@ -1,14 +1,10 @@
 const AWS = require("aws-sdk");
-const RekognitionHandler = require("./rekognition-handler");
 const ResponseHandler = require("./response-handler");
 const S3Handler = require("./s3-handler");
 
 const { REGION } = process.env;
 
 exports.handler = (event, context, callback) => {
-  const { createCollection, deleteCollection } = RekognitionHandler(
-    new AWS.Rekognition({ region: REGION })
-  );
   const { copyFiles, removeFiles, writeSettings } = S3Handler(new AWS.S3());
   const { sendResponse } = ResponseHandler(event, context, callback);
 
@@ -17,10 +13,10 @@ exports.handler = (event, context, callback) => {
 
   if (eventType === "Create") {
     console.log("Creating resources");
-    actions = [copyFiles(), writeSettings(), createCollection()];
+    actions = [copyFiles(), writeSettings()];
   } else if (eventType === "Delete") {
     console.log("Deleting resources");
-    actions = [removeFiles(), deleteCollection()];
+    actions = [removeFiles()];
   }
 
   Promise.all(actions)
