@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: "2010-09-09"
-Description: This template deploys the Amazon Rekognition PPE Demo
+Description: This template deploys the Amazon Rekognition PPE Demo (uksb-1qpqs27gu)
 Transform: AWS::Serverless-2016-10-31
 
 Globals:
@@ -9,10 +9,6 @@ Globals:
     Timeout: 30
     Environment:
       Variables:
-        COLLECTION_ID: !Ref ResourcePrefix
-        # FACES_TABLENAME: !Ref FacesTable
-        MIN_CONFIDENCE: !Ref MinConfidence
-        # OBJECTS_OF_INTEREST_LABELS: !Join [",", !Ref ObjectsOfInterestLabels]
         REGION: !Ref AWS::Region
         VERSION: "0.1"
   Api:
@@ -252,22 +248,6 @@ Resources:
             - Effect: Allow
               Action: s3:GetObject
               Resource: !Sub arn:aws:s3:::solution-builders-${AWS::Region}/*
-            - Effect: Allow
-              Action:
-                - rekognition:CreateCollection
-                - rekognition:DeleteCollection
-              Resource: !Sub arn:aws:rekognition:${AWS::Region}:${AWS::AccountId}:collection/${ResourcePrefix}
-
-  # FacesTable:
-  #   Type: AWS::DynamoDB::Table
-  #   Properties:
-  #     AttributeDefinitions:
-  #       - AttributeName: ExternalImageId
-  #         AttributeType: S
-  #     KeySchema:
-  #       - AttributeName: ExternalImageId
-  #         KeyType: HASH
-  #     BillingMode: PAY_PER_REQUEST
 
   CloudFrontOriginAccessIdentity:
     Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
