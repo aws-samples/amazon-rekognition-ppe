@@ -41,16 +41,22 @@ The demo application is deployed as an [AWS CloudFormation](https://aws.amazon.c
 
 1. Deploy the latest CloudFormation template by following the link below for your preferred AWS region:
 
-TODO TABLE
+
+| Region                                | Launch Template                                                                                                                                                                                                                                                                                                               |
+| ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **US East (N. Virginia)** (us-east-1) | [![Launch the PPEDemo Stack with CloudFormation](docs/deploy-to-aws.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=PPEDemo&templateURL=https://solution-builders-us-east-1.s3.us-east-1.amazonaws.com/amazon-rekognition-ppe/latest/template.yaml) |
+| **US East (Ohio)** (us-east-2)        | [![Launch the PPEDemo Stack with CloudFormation](docs/deploy-to-aws.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/new?stackName=PPEDemo&templateURL=https://solution-builders-us-east-2.s3.us-east-2.amazonaws.com/amazon-rekognition-ppe/latest/template.yaml) |
+| **US West (Oregon)** (us-west-2)      | [![Launch the PPEDemo Stack with CloudFormation](docs/deploy-to-aws.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=PPEDemo&templateURL=https://solution-builders-us-west-2.s3.us-west-2.amazonaws.com/amazon-rekognition-ppe/latest/template.yaml) |
+| **EU (Ireland)** (eu-west-1)          | [![Launch the PPEDemo Stack with CloudFormation](docs/deploy-to-aws.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=PPEDemo&templateURL=https://solution-builders-eu-west-1.s3.eu-west-1.amazonaws.com/amazon-rekognition-ppe/latest/template.yaml) |
 
 2. If prompted, login using your AWS account credentials.
 3. You should see a screen titled "_Create Stack_" at the "_Specify template_" step. The fields specifying the CloudFormation template are pre-populated. Click the _Next_ button at the bottom of the page.
 4. On the "_Specify stack details_" screen you may customize the following parameters of the CloudFormation stack:
 
-   - **Stack Name:** (Default: <TODO>) This is the name that is used to refer to this stack in CloudFormation once deployed.
+   - **Stack Name:** (Default: PPEDemo) This is the name that is used to refer to this stack in CloudFormation once deployed.
    - **AdminEmail:** The email address you wish to setup as the initial user of this Amazon Rekognition PPE Demo deployment.
    - **CreateCloudFrontDistribution** (Default: true) Creates a CloudFront distribution for accessing the web interface of the solution.
-   - **ResourcePrefix:** (Default: <TODO>) Resource prefix to apply to resource names when creating statically named resources.
+   - **ResourcePrefix:** (Default: PPEDemo) Resource prefix to apply to resource names when creating statically named resources.
 
    When completed, click _Next_
 
