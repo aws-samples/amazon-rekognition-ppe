@@ -26,7 +26,7 @@ export default () => {
     const b64Encoded = image.split(",")[1];
 
     gateway.processImage(b64Encoded).then((response) => {
-      var people = response[0].Persons.map(ppeTest);
+      const people = response[0].Persons.map(ppeTest);
       console.log(people);
       if (response) setTestResults(people);
       if (iterating.current) setTimeout(getSnapshot, 300);
