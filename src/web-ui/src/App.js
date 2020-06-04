@@ -79,6 +79,7 @@ export default () => {
             <Col md={8} sm={6}>
               <Webcam
                 ref={setupWebcam}
+                audio={false}
                 screenshotFormat="image/jpeg"
                 videoConstraints={{
                   width: 1280,
