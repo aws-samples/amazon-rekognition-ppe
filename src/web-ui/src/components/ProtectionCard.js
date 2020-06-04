@@ -12,8 +12,8 @@ const TestResult = ({ testResult }) => {
   );
 };
 export default ({ person }) => {
-  const result = person.results.map((test) => {
-    return <TestResult testResult={test}></TestResult>;
+  const result = person.results.map((test, index) => {
+    return <TestResult testResult={test} key={index}></TestResult>;
   });
   console.log("person", person);
   return (
