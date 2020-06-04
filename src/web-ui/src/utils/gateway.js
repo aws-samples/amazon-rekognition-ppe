@@ -170,8 +170,7 @@ export default {
           },
         ],
       };
-      resolve([ret]);
-      return;
+      return resolve([ret]);
     });
   },
 };
