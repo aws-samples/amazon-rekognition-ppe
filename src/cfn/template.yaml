@@ -6,11 +6,12 @@ Globals:
   Function:
     Runtime: nodejs12.x
     MemorySize: 128
-    Timeout: 30
+    Timeout: 120
     Environment:
       Variables:
         REGION: !Ref AWS::Region
         VERSION: "0.1"
+        ENDPOINT: !Ref Endpoint
   Api:
     EndpointConfiguration: REGIONAL
     Cors:
@@ -68,6 +69,9 @@ Parameters:
     AllowedValues:
       - "true"
       - "false"
+  Endpoint:
+    Description: Endpoint URL
+    Type: String
 
 Conditions:
   WithCloudFront: !Equals [!Ref CreateCloudFrontDistribution, "true"]
@@ -215,6 +219,12 @@ Resources:
             Method: post
       Policies:
         - RekognitionDetectOnlyPolicy: {}
+        - Version: "2012-10-17"
+          Statement:
+            - Effect: Allow
+              Action:
+                - rekognition:DetectProtectiveEquipment
+              Resource: "*"
 
   LambdaSetup:
     Type: AWS::Serverless::Function
