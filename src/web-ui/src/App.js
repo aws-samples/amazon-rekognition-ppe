@@ -5,9 +5,10 @@ import Webcam from "react-webcam";
 import { Col, Row } from "react-bootstrap";
 
 import gateway from "./utils/gateway";
+import { ppeTest } from "./utils/ppe";
 
 import CameraHelp from "./components/CameraHelp";
-import EngagementSummary from "./components/EngagementsSummary";
+import ProtectionSummary from "./components/ProtectionSummary";
 import Header from "./components/Header";
 import SettingsHelp from "./components/SettingsHelp";
 
@@ -23,7 +24,9 @@ export default () => {
     const b64Encoded = image.split(",")[1];
 
     gateway.processImage(b64Encoded).then((response) => {
-      if (response) setTestResults(response);
+      const people = response[0].Persons.map(ppeTest);
+      console.log(people);
+      if (response) setTestResults(people);
       if (iterating.current) setTimeout(getSnapshot, 300);
       else setTestResults([]);
     });
@@ -85,7 +88,7 @@ export default () => {
               />
             </Col>
             <Col md={4} sm={6}>
-              <EngagementSummary testResults={testResults} />
+              <ProtectionSummary testResults={testResults} />
             </Col>
           </Row>
         </>
