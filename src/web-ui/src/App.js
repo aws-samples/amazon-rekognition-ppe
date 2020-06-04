@@ -64,7 +64,6 @@ export default () => {
   return (
     <div className="App">
       <Header
-        addUser={addUser}
         readyToStream={readyToStream}
         signedIn={signedIn}
         toggleRekognition={toggleRekognition}
