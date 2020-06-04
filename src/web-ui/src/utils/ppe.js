@@ -1,0 +1,58 @@
+export default (person) => {
+  const HEAD = "Head";
+  const LEFT_HAND = "Left Hand";
+  const RIGHT_HAND = "Right Hand";
+  const FACE = "Face";
+
+  const getBodyPart = (person, bodyPart) => {
+    return person.BodyParts.filter((p) => {
+      return p.Name === bodyPart;
+    })[0];
+  };
+
+  const hasProtection = (person, part) => {
+    const bodyPart = getBodyPart(person, part);
+    return bodyPart.Equipments.length >= 1;
+  };
+
+  const head = (person) => {
+    const success = hasProtection(person, HEAD);
+    return {
+      TestName: "Head Protection",
+      Id: person.Id,
+      Details: "Person is wearing head protection",
+      Success: success,
+    };
+  };
+
+  const hands = (person) => {
+    const success =
+      hasProtection(person, LEFT_HAND) && hasProtection(person, RIGHT_HAND);
+    return {
+      TestName: "Hand Protection",
+      Id: person.Id,
+      Details: "Person is wearing hand protection",
+      Success: success,
+    };
+  };
+
+  const face = (person) => {
+    const success = hasProtection(person, FACE);
+    return {
+      TestName: "Face Protection",
+      Id: person.Id,
+      Details: "Person is wearing face protection",
+      Success: success,
+    };
+  };
+
+  const tests = [head, hands, face];
+  const results = tests.map((test) => {
+    return test(person);
+  });
+
+  return {
+    id: person.Id,
+    results: results,
+  };
+};
