@@ -10,6 +10,7 @@ export default (person) => {
     })[0];
   };
 
+  // hasProtection is true of a bodypart has any equipment
   const hasProtection = (person, part) => {
     const bodyPart = getBodyPart(person, part);
     return bodyPart.Equipments.length >= 1;
@@ -19,8 +20,6 @@ export default (person) => {
     const success = hasProtection(person, HEAD);
     return {
       TestName: "Head Protection",
-      Id: person.Id,
-      Details: "Person is wearing head protection",
       Success: success,
     };
   };
@@ -30,8 +29,6 @@ export default (person) => {
       hasProtection(person, LEFT_HAND) && hasProtection(person, RIGHT_HAND);
     return {
       TestName: "Hand Protection",
-      Id: person.Id,
-      Details: "Person is wearing hand protection",
       Success: success,
     };
   };
@@ -40,8 +37,6 @@ export default (person) => {
     const success = hasProtection(person, FACE);
     return {
       TestName: "Face Protection",
-      Id: person.Id,
-      Details: "Person is wearing face protection",
       Success: success,
     };
   };
