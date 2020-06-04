@@ -1,4 +1,4 @@
-export default (person) => {
+export const ppeTest = (person) => {
   const HEAD = "Head";
   const LEFT_HAND = "Left Hand";
   const RIGHT_HAND = "Right Hand";

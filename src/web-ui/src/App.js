@@ -5,7 +5,7 @@ import Webcam from "react-webcam";
 import { Col, Row } from "react-bootstrap";
 
 import gateway from "./utils/gateway";
-import makePerson from "./utils/ppe";
+import { ppeTest } from "./utils/ppe";
 
 import CameraHelp from "./components/CameraHelp";
 import ProtectionSummary from "./components/ProtectionSummary";
@@ -26,7 +26,7 @@ export default () => {
     const b64Encoded = image.split(",")[1];
 
     gateway.processImage(b64Encoded).then((response) => {
-      var people = response[0].Persons.map(makePerson);
+      var people = response[0].Persons.map(ppeTest);
       console.log(people);
       if (response) setTestResults(people);
       if (iterating.current) setTimeout(getSnapshot, 300);
