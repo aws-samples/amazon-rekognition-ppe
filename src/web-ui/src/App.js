@@ -18,8 +18,6 @@ export default () => {
   const iterating = useRef(false);
   const webcam = useRef(undefined);
 
-  const addUser = (params) => gateway.addUser(params);
-
   const getSnapshot = () => {
     const image = webcam.current.getScreenshot();
     const b64Encoded = image.split(",")[1];
@@ -64,7 +62,6 @@ export default () => {
   return (
     <div className="App">
       <Header
-        addUser={addUser}
         readyToStream={readyToStream}
         signedIn={signedIn}
         toggleRekognition={toggleRekognition}
