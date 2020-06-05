@@ -31,10 +31,11 @@ const detectPPE = async (imageBytes) => {
     return "error";
   }
 };
+
 exports.processHandler = async (event) => {
   const body = JSON.parse(event.body);
   const imageBytes = Buffer.from(body.image, "base64");
-  const result = await Promise.all([detectPPE(imageBytes)]);
+  const result = await detectPPE(imageBytes);
 
-  return respond(200, result.flat());
+  return respond(200, result);
 };

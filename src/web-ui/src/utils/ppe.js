@@ -1,8 +1,8 @@
 export const ppeTest = (person) => {
-  const HEAD = "Head";
-  const LEFT_HAND = "Left Hand";
-  const RIGHT_HAND = "Right Hand";
-  const FACE = "Face";
+  const HEAD = "HEAD";
+  const LEFT_HAND = "LEFT HAND";
+  const RIGHT_HAND = "RIGHT HAND";
+  const FACE = "FACE";
 
   const getBodyPart = (person, bodyPart) =>
     person.BodyParts.filter((p) => p.Name === bodyPart)[0];
@@ -10,7 +10,7 @@ export const ppeTest = (person) => {
   // hasProtection is true of a bodypart has any equipment
   const hasProtection = (person, part) => {
     const bodyPart = getBodyPart(person, part);
-    return bodyPart.Equipments.length >= 1;
+    return bodyPart && bodyPart.EquipmentDetections && bodyPart.EquipmentDetections.length >= 1;
   };
 
   const head = (person) => {

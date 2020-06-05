@@ -10,8 +10,11 @@ Globals:
     Environment:
       Variables:
         REGION: !Ref AWS::Region
-        VERSION: "0.1"
-        ENDPOINT: !Ref Endpoint
+        VERSION: "0.2"
+        REKOGNITION_BASE_URL: !If
+          - WithServiceOverride
+          - !Ref ServiceOverride
+          - !Sub https://rekognition.${AWS::Region}.amazonaws.com
   Api:
     EndpointConfiguration: REGIONAL
     Cors:
@@ -69,12 +72,14 @@ Parameters:
     AllowedValues:
       - "true"
       - "false"
-  Endpoint:
-    Description: Endpoint URL
+  ServiceOverride:
+    Description: Allows to test the Demo with a different Rekognition Base Url. It shouldn't be required for most of use-cases.
     Type: String
+    Default: ""
 
 Conditions:
   WithCloudFront: !Equals [!Ref CreateCloudFrontDistribution, "true"]
+  WithServiceOverride: !Not [!Equals [!Ref ServiceOverride, ""]]
 
 Outputs:
   api:
@@ -204,6 +209,16 @@ Resources:
             Condition:
               StringEquals:
                 "cognito-identity.amazonaws.com:aud": !Ref CognitoIdentityPool
+      Path: "/"
+      Policies:
+        - PolicyName: WebServiceExecutionPolicy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: rekognition:DetectProtectiveEquipment
+                Resource: "*"
+  
   # # Lambdas
 
   ProcessImageFunction:

@@ -9,6 +9,7 @@ const {
   CREATE_CLOUDFRONT_DISTRIBUTION,
   FROM_BUCKET,
   REGION,
+  REKOGNITION_BASE_URL,
   TO_BUCKET,
   VERSION,
 } = process.env;
@@ -67,6 +68,7 @@ module.exports = (s3) => {
           Key: CONFIG_FILENAME,
           Body: `window.rekognitionSettings = ${JSON.stringify({
             apiGateway: API_GATEWAY,
+            baseUrl: REKOGNITION_BASE_URL,
             cognitoIdentityPool: COGNITO_IDENTITY_POOL,
             cognitoUserPoolId: COGNITO_USERPOOL_ID,
             cognitoUserPoolClientId: COGNITO_USERPOOLCLIENT_ID,
