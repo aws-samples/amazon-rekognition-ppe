@@ -4,11 +4,11 @@ TODO Introduction
 
 ## Navigate
 
-[Demo](/demo)
-[Frame Extraction](/frame-extraction)
-[Smart Edge](/smart-edge)
-[Stored Video](/stored-video)
-[Streaming Video](/streaming-video)
+- [Demo](/demo)
+- [Frame Extraction](/frame-extraction)
+- [Smart Edge](/smart-edge)
+- [Stored Video](/stored-video)
+- [Streaming Video](/streaming-video)
 
 ### [Demo](/demo)
 
