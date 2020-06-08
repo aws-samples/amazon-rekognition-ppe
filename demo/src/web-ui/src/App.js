@@ -71,9 +71,10 @@ export default () => {
         signedIn={signedIn}
         toggleRekognition={toggleRekognition}
       />
-      {signedIn ? (
+      {!window.rekognitionSettings ? (
+        <SettingsHelp show={true} />
+      ) : signedIn ? (
         <>
-          <SettingsHelp show={!window.rekognitionSettings} />
           <CameraHelp show={!readyToStream} />
           <Row>
             <Col md={8} sm={6}>
