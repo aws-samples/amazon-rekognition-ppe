@@ -72,7 +72,7 @@ export default () => {
         toggleRekognition={toggleRekognition}
       />
       {!window.rekognitionSettings ? (
-        <SettingsHelp show={true} />
+        <SettingsHelp />
       ) : signedIn ? (
         <>
           <CameraHelp show={!readyToStream} />
