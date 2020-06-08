@@ -1,4 +1,4 @@
-import { ppeTest, hands, face, head } from "./ppe";
+import { hands, face, head } from "./ppe";
 
 const testData = {
   Persons: [
