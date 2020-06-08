@@ -10,7 +10,7 @@ Globals:
     Environment:
       Variables:
         REGION: !Ref AWS::Region
-        VERSION: "0.2"
+        VERSION: "0.3"
         REKOGNITION_BASE_URL: !If
           - WithServiceOverride
           - !Ref ServiceOverride
@@ -218,7 +218,7 @@ Resources:
               - Effect: Allow
                 Action: rekognition:DetectProtectiveEquipment
                 Resource: "*"
-  
+
   # # Lambdas
 
   ProcessImageFunction:
