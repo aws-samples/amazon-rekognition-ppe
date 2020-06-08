@@ -82,15 +82,17 @@ The following applications are required to contribute:
 
 To start, run `npm install`.
 
-## Working with CloudFormation
+## PPE Demo
 
-The CloudFormation source code is located inside the `src/cfn` directory. The template uses a custom resource for populating the S3 bucket with the Web UI's static resources. The lambda source code is located inside the `src/functions/setup` directory.
+### Working with CloudFormation
 
-## Working with the Web UI
+The CloudFormation source code is located inside the `demo/src/cfn` directory. The template uses a custom resource for populating the S3 bucket with the Web UI's static resources. The lambda source code is located inside the `demo/src/functions/setup` directory.
+
+### Working with the Web UI
 
 To develop a local version of the web UI:
 
 1. Deploy the CloudFormation template.
-2. Once the CloudFormation stack is deployed, a `url` output will be available from CloudFormation in the format of `https://<s3-bucket-url>/index.html`. Download the file `https://<s3-bucket-url>/settings.js` to the `src/web-ui/public/` folder. In this way, it will be possible to develop locally using the API Gateway and Cognito Pool Id that CloudFormation just created in AWS. Note that the `settings.js` is "_gitignored_".
-3. Run `npm start`. The browser will automatically open the UI with hot reloading enabled.
-   To make changes, edit the files in the `src/web-ui` folder.
+2. Once the CloudFormation stack is deployed, a `url` output will be available from CloudFormation in the format of `https://<s3-bucket-url>/index.html`. Download the file `https://<s3-bucket-url>/settings.js` to the `demo/src/web-ui/public/` folder. In this way, it will be possible to develop locally using the API Gateway and Cognito Pool Id that CloudFormation just created in AWS. Note that the `settings.js` is "_gitignored_".
+3. Change to the `/demo` directory and run `npm start`. The browser will automatically open the UI with hot reloading enabled.
+   To make changes, edit the files in the `demo/src/web-ui` folder.
