@@ -13,10 +13,13 @@ exports.handler = (event, context, callback) => {
 
   if (eventType === "Create") {
     console.log("Creating resources");
-    actions = [copyFiles(), writeSettings()];
+    actions = [
+      // copyFiles(),
+      writeSettings(),
+    ];
   } else if (eventType === "Delete") {
     console.log("Deleting resources");
-    actions = [removeFiles()];
+    // actions = [removeFiles()];
   }
 
   Promise.all(actions)
