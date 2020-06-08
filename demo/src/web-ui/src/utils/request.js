@@ -5,7 +5,8 @@ const settings = window.rekognitionSettings || {};
 const region = settings.region || "eu-west-1";
 
 let endpoint = settings.baseUrl;
-if (!endpoint.startsWith("https://")) endpoint = `https://${endpoint}`;
+if (endpoint && !endpoint.startsWith("https://"))
+  endpoint = `https://${endpoint}`;
 
 Amplify.configure({
   Auth: {

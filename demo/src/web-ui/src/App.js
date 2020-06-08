@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { findDOMNode } from "react-dom";
 import { AmplifyAuthenticator, AmplifySignIn } from "@aws-amplify/ui-react";
 import { onAuthUIStateChange } from "@aws-amplify/ui-components";
 import Webcam from "react-webcam";
@@ -16,10 +17,12 @@ export default () => {
   const [authState, setAuthState] = useState(undefined);
   const [readyToStream, setReadyToStream] = useState(false);
   const [testResults, setTestResults] = useState([]);
+  const [webcamCoordinates, setWebcamCoordinates] = useState({});
   const iterating = useRef(false);
   const webcam = useRef(undefined);
 
   const getSnapshot = () => {
+    setWebcamCoordinates(findDOMNode(webcam.current).getBoundingClientRect());
     const image = webcam.current.getScreenshot();
     const b64Encoded = image.split(",")[1];
 
@@ -68,9 +71,10 @@ export default () => {
         signedIn={signedIn}
         toggleRekognition={toggleRekognition}
       />
-      {signedIn ? (
+      {!window.rekognitionSettings ? (
+        <SettingsHelp />
+      ) : signedIn ? (
         <>
-          <SettingsHelp show={!window.rekognitionSettings} />
           <CameraHelp show={!readyToStream} />
           <Row>
             <Col md={8} sm={6}>
@@ -87,7 +91,10 @@ export default () => {
               />
             </Col>
             <Col md={4} sm={6}>
-              <ProtectionSummary testResults={testResults} />
+              <ProtectionSummary
+                testResults={testResults}
+                webcamCoordinates={webcamCoordinates}
+              />
             </Col>
           </Row>
         </>
