@@ -1,0 +1,13 @@
+.DS_Store
+.python-version
+.vscode
+backend
+dist
+frontend.zip
+node_modules
+npm-debug.log*
+demo/src/functions/aws-sdk/
+demo/src/web-ui/build
+demo/src/web-ui/dist
+demo/src/web-ui/public/settings.js
+templates
