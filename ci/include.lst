@@ -1,5 +1,5 @@
-backend
+demo/backend
 cfn-publish.config
-frontend.zip
-package.json
-templates
+demo/frontend.zip
+demo/package.json
+demo/templates
