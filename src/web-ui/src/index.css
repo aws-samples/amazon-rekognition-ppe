@@ -341,3 +341,15 @@ svg {
   text-align: center;
   margin: 5% auto 50px;
 }
+
+.box-label {
+  background-color: #000;
+  padding: 2px;
+}
+
+.bounding-box {
+  border: 1px solid #000;
+  color: #fff;
+  font-weight: bold;
+  position: fixed;
+}
