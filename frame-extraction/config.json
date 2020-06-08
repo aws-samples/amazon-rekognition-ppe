@@ -1,0 +1,10 @@
+[
+  {
+    "area": "example-area",
+    "subarea": "example-sub-area",
+    "videoStreamUrl": "192.168.86.50",
+    "s3Bucket": "example-bucket-name",
+    "isFisheye": false,
+    "frameCaptureThreshold": 300
+  }
+]
