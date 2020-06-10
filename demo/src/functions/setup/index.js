@@ -2,8 +2,6 @@ const AWS = require("aws-sdk");
 const ResponseHandler = require("./response-handler");
 const S3Handler = require("./s3-handler");
 
-const { REGION } = process.env;
-
 exports.handler = (event, context, callback) => {
   const { copyFiles, removeFiles, writeSettings } = S3Handler(new AWS.S3());
   const { sendResponse } = ResponseHandler(event, context, callback);
@@ -13,13 +11,10 @@ exports.handler = (event, context, callback) => {
 
   if (eventType === "Create") {
     console.log("Creating resources");
-    actions = [
-      // copyFiles(),
-      writeSettings(),
-    ];
+    actions = [copyFiles(), writeSettings()];
   } else if (eventType === "Delete") {
     console.log("Deleting resources");
-    // actions = [removeFiles()];
+    actions = [removeFiles()];
   }
 
   Promise.all(actions)

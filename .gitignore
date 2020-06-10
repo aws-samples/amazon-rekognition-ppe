@@ -4,9 +4,13 @@
 backend
 dist
 frontend.zip
-node_modules
+node_modules/*
 npm-debug.log*
 demo/src/functions/aws-sdk/
+demo/src/functions/detect/node_modules
+
+demo/src/functions/setup/node_modules
+demo/src/web-ui/node_modules
 demo/src/web-ui/build
 demo/src/web-ui/dist
 demo/src/web-ui/public/settings.js

@@ -38,21 +38,10 @@ Amplify.configure({
   },
 });
 
-// export default (url, method, data) =>
-//   retryWrapper(() =>
-//   API[method || "get"]("apiGateway", url, {
-//       body: data || undefined,
-//       headers: { "Content-Type": "application/json" },
-//     })
-//   );
-
-export default (endpointName, data) =>
+export default (url, method, data) =>
   retryWrapper(() =>
-    API.post("rekognitionApi", "", {
-      body: data || {},
-      headers: {
-        "Content-Type": "application/x-amz-json-1.1",
-        "X-Amz-Target": `RekognitionService.${endpointName}`,
-      },
+    API[method || "get"]("apiGateway", url, {
+      body: data || undefined,
+      headers: { "Content-Type": "application/json" },
     })
   );

@@ -10,7 +10,7 @@ Globals:
     Environment:
       Variables:
         REGION: !Ref AWS::Region
-        VERSION: "0.5"
+        VERSION: "0.6"
         REKOGNITION_BASE_URL: !If
           - WithServiceOverride
           - !Ref ServiceOverride

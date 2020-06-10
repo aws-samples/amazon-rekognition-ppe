@@ -1,10 +1,14 @@
 const AWS = require("aws-sdk");
 
-const { REGION, ENDPOINT } = process.env;
+const { REGION, REKOGNITION_BASE_URL } = process.env;
+
+let endpoint = REKOGNITION_BASE_URL;
+if (endpoint && !endpoint.startsWith("https://"))
+  endpoint = `https://${endpoint}`;
 
 const rekognition = new AWS.Rekognition({
   region: REGION,
-  endpoint: new AWS.Endpoint(ENDPOINT),
+  endpoint: new AWS.Endpoint(endpoint),
 });
 
 const respond = (statusCode, response) => ({
