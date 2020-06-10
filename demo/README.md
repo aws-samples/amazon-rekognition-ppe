@@ -1,6 +1,8 @@
 ## Detect Personal Protective Equipment using Amazon Rekognition
 
-TODO
+This Demo shows how you can have a serverless architecture to process frames from cameras for PPE detection.
+
+This solution includes a web app that uses a webcam to extract frames and send them to an AWS API Gateway. The API Gateway then calls a AWS Lambda that interacts with Amazon Rekognition and calls the `DetectProtectiveEquipment` endpoint.
 
 ### Index
 
