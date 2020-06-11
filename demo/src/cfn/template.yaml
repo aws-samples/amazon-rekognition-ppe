@@ -10,7 +10,7 @@ Globals:
     Environment:
       Variables:
         REGION: !Ref AWS::Region
-        VERSION: "0.9"
+        VERSION: "0.10"
 
   Api:
     EndpointConfiguration: REGIONAL
