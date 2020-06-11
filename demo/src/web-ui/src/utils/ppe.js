@@ -4,7 +4,7 @@ const RIGHT_HAND = "RIGHT_HAND";
 const FACE = "FACE";
 
 export const ppeTest = (person) => {
-  const results = [head, hands, face].map((test) => test(person));
+  const results = [head, face, leftHand, rightHand].map((test) => test(person));
 
   return {
     id: person.Id,
@@ -26,17 +26,21 @@ const hasProtection = (person, part) => {
 };
 
 export const head = (person) => ({
-  TestName: "Head Protection",
+  TestName: "Head Covered",
   Success: hasProtection(person, HEAD),
 });
 
-export const hands = (person) => ({
-  TestName: "Hand Protection",
-  Success:
-    hasProtection(person, LEFT_HAND) && hasProtection(person, RIGHT_HAND),
+export const leftHand = (person) => ({
+  TestName: "Left Hand Covered",
+  Success: hasProtection(person, LEFT_HAND),
+});
+
+export const rightHand = (person) => ({
+  TestName: "Right Hand Covered",
+  Success: hasProtection(person, RIGHT_HAND),
 });
 
 export const face = (person) => ({
-  TestName: "Face Protection",
+  TestName: "Face Covered",
   Success: hasProtection(person, FACE),
 });
