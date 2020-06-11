@@ -26,7 +26,7 @@ const hasProtection = (person, part) => {
 };
 
 export const head = (person) => ({
-  TestName: "Head Protection",
+  TestName: "Head Covered",
   Success: hasProtection(person, HEAD),
 });
 
@@ -41,6 +41,6 @@ export const rightHand = (person) => ({
 });
 
 export const face = (person) => ({
-  TestName: "Face Protection",
+  TestName: "Face Covered",
   Success: hasProtection(person, FACE),
 });
