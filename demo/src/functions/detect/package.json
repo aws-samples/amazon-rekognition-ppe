@@ -2,9 +2,5 @@
   "name": "detect-ppe",
   "version": "1.0.0",
   "private": true,
-  "main": "index.js",
-  "dependencies": {
-    "aws-sdk": "^2.680.0",
-    "uuid": "^8.1.0"
-  }
+  "main": "index.js"
 }
