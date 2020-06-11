@@ -353,3 +353,7 @@ svg {
   font-weight: bold;
   position: fixed;
 }
+
+.alert-danger {
+  margin-top: 10px;
+}

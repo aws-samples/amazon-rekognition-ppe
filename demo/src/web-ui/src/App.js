@@ -3,10 +3,11 @@ import { findDOMNode } from "react-dom";
 import { AmplifyAuthenticator, AmplifySignIn } from "@aws-amplify/ui-react";
 import { onAuthUIStateChange } from "@aws-amplify/ui-components";
 import Webcam from "react-webcam";
-import { Col, Row } from "react-bootstrap";
+import { Alert, Col, Row } from "react-bootstrap";
 
 import gateway from "./utils/gateway";
 import { ppeTest } from "./utils/ppe";
+import { isUndefined, formatErrorMessage } from "./utils";
 
 import CameraHelp from "./components/CameraHelp";
 import ProtectionSummary from "./components/ProtectionSummary";
@@ -15,23 +16,29 @@ import SettingsHelp from "./components/SettingsHelp";
 
 export default () => {
   const [authState, setAuthState] = useState(undefined);
+  const [errorDetails, setErrorDetails] = useState(undefined);
   const [readyToStream, setReadyToStream] = useState(false);
   const [testResults, setTestResults] = useState([]);
   const [webcamCoordinates, setWebcamCoordinates] = useState({});
+
   const iterating = useRef(false);
   const webcam = useRef(undefined);
 
-  const getSnapshot = () => {
+  const getSnapshot = async () => {
     setWebcamCoordinates(findDOMNode(webcam.current).getBoundingClientRect());
     const image = webcam.current.getScreenshot();
     const b64Encoded = image.split(",")[1];
 
-    gateway.processImage(b64Encoded).then((response) => {
-      const people = response.Persons.map(ppeTest);
-      if (response) setTestResults(people);
+    try {
+      const result = await gateway.processImage(b64Encoded);
+      const people = result.Persons.map(ppeTest);
+      setTestResults(people);
       if (iterating.current) setTimeout(getSnapshot, 300);
       else setTestResults([]);
-    });
+    } catch (e) {
+      setErrorDetails(formatErrorMessage(e));
+      console.log(e);
+    }
   };
 
   const setupWebcam = (instance) => {
@@ -91,6 +98,15 @@ export default () => {
               />
             </Col>
             <Col md={4} sm={6}>
+              <Alert
+                variant="danger"
+                style={{
+                  display: isUndefined(errorDetails) ? "none" : "block",
+                }}
+              >
+                An error happened{errorDetails && `: ${errorDetails}`}.{" "}
+                <a href={window.location.href}>Retry</a>.
+              </Alert>
               <ProtectionSummary
                 testResults={testResults}
                 webcamCoordinates={webcamCoordinates}

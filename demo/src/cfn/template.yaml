@@ -11,10 +11,7 @@ Globals:
       Variables:
         REGION: !Ref AWS::Region
         VERSION: "0.6"
-        REKOGNITION_BASE_URL: !If
-          - WithServiceOverride
-          - !Ref ServiceOverride
-          - !Sub https://rekognition.${AWS::Region}.amazonaws.com
+
   Api:
     EndpointConfiguration: REGIONAL
     Cors:
@@ -29,6 +26,14 @@ Globals:
       AddDefaultAuthorizerToCorsPreflight: False
     GatewayResponses:
       DEFAULT_4XX:
+        ResponseTemplates:
+          "application/json": '{ "Message": $context.error.messageString }'
+        ResponseParameters:
+          Headers:
+            Access-Control-Allow-Methods: "'*'"
+            Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+            Access-Control-Allow-Origin: "'*'"
+      DEFAULT_5XX:
         ResponseTemplates:
           "application/json": '{ "Message": $context.error.messageString }'
         ResponseParameters:
@@ -72,14 +77,9 @@ Parameters:
     AllowedValues:
       - "true"
       - "false"
-  ServiceOverride:
-    Description: Allows to test the Demo with a different Rekognition Base Url. It shouldn't be required for most of use-cases.
-    Type: String
-    Default: ""
 
 Conditions:
   WithCloudFront: !Equals [!Ref CreateCloudFrontDistribution, "true"]
-  WithServiceOverride: !Not [!Equals [!Ref ServiceOverride, ""]]
 
 Outputs:
   api:
