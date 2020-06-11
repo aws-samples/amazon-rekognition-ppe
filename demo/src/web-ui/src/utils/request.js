@@ -4,10 +4,6 @@ import { retryWrapper } from "./index";
 const settings = window.rekognitionSettings || {};
 const region = settings.region || "eu-west-1";
 
-let endpoint = settings.baseUrl;
-if (endpoint && !endpoint.startsWith("https://"))
-  endpoint = `https://${endpoint}`;
-
 Amplify.configure({
   Auth: {
     identityPoolId: settings.cognitoIdentityPool,
@@ -27,12 +23,6 @@ Amplify.configure({
           const token = session.getIdToken().getJwtToken();
           return { Authorization: `Bearer ${token}` };
         },
-      },
-      {
-        name: "rekognitionApi",
-        endpoint,
-        region,
-        service: "rekognition",
       },
     ],
   },

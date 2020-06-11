@@ -1,14 +1,9 @@
 const AWS = require("aws-sdk");
 
-const { REGION, REKOGNITION_BASE_URL } = process.env;
-
-let endpoint = REKOGNITION_BASE_URL;
-if (endpoint && !endpoint.startsWith("https://"))
-  endpoint = `https://${endpoint}`;
+const { REGION } = process.env;
 
 const rekognition = new AWS.Rekognition({
   region: REGION,
-  endpoint: new AWS.Endpoint(endpoint),
 });
 
 const respond = (statusCode, response) => ({
@@ -20,26 +15,19 @@ const respond = (statusCode, response) => ({
   },
 });
 
-const detectPPE = async (imageBytes) => {
-  const getPPE = () =>
-    rekognition
-      .detectProtectiveEquipment({ Image: { Bytes: imageBytes } })
-      .promise();
-
-  try {
-    const ppe = await getPPE();
-    console.log(ppe);
-    return "success";
-  } catch (e) {
-    console.log(e);
-    return "error";
-  }
-};
+const detectPPE = async (imageBytes) =>
+  rekognition
+    .detectProtectiveEquipment({ Image: { Bytes: imageBytes } })
+    .promise();
 
 exports.processHandler = async (event) => {
   const body = JSON.parse(event.body);
   const imageBytes = Buffer.from(body.image, "base64");
-  const result = await detectPPE(imageBytes);
 
-  return respond(200, result);
+  try {
+    const ppe = await detectPPE(imageBytes);
+    return respond(200, ppe);
+  } catch (e) {
+    return respond(500, { error: e });
+  }
 };
