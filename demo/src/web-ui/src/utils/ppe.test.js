@@ -1,4 +1,4 @@
-import { hands, face, head } from "./ppe";
+import { leftHand, rightHand, face, head } from "./ppe";
 
 const testData = {
   Persons: [
@@ -99,9 +99,14 @@ const testData = {
 };
 
 describe("ppe tests", () => {
-  test("hands test", () => {
+  test("left hand", () => {
     const person = testData.Persons[0];
-    const got = hands(person);
+    const got = leftHand(person);
+    expect(got.Success).toBeTruthy();
+  });
+  test("right hand", () => {
+    const person = testData.Persons[0];
+    const got = rightHand(person);
     expect(got.Success).toBeTruthy();
   });
 
