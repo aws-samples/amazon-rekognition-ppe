@@ -11,7 +11,7 @@
     "cfn-test-local": "npm run cfn-build && rain deploy templates/template.yaml PPE-DEMO -r us-east-1",
     "deploy": "npm run zip && aws s3 cp ./`npm run echo-version --silent`.zip s3://$CFN_BUCKET/$npm_package_name/`npm run echo-version --silent`/$npm_package_name.zip",
     "echo-version": "echo v`node -e \"console.log(require('node-yaml').readSync('templates/template.yaml').Globals.Function.Environment.Variables.VERSION)\"`",
-    "postinstall": "cd demo/src/web-ui && npm i && cd ../functions/setup && npm i && cd ../detect && npm i && cp -r ./aws-sdk/ ./node_modules/aws-sdk",
+    "postinstall": "cd demo/src/web-ui && npm i && cd ../functions/setup && npm i && cd ../detect/aws-sdk && npm i",
     "start": "cd demo/src/web-ui && npm start",
     "tag": "git tag `npm run echo-version --silent`",
     "test": "cfn-lint templates/template.yaml",

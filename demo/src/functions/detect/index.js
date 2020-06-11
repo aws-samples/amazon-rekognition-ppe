@@ -1,4 +1,4 @@
-const AWS = require("aws-sdk");
+const AWS = require("./aws-sdk");
 
 const { REGION } = process.env;
 
