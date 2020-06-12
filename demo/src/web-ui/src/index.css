@@ -327,7 +327,7 @@ h4 {
 svg {
   width: 24px;
   height: 24px;
-  margin-right: 8px;
+  margin: 0 6px;
 }
 
 :root {
@@ -356,4 +356,12 @@ svg {
 
 .alert-danger {
   margin-top: 10px;
+}
+
+.confidence {
+  float: right;
+}
+
+.detection-part {
+  margin-bottom: 10px;
 }
