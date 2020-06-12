@@ -1,4 +1,4 @@
-import { leftHand, rightHand, face, head } from "./ppe";
+import { ppeMapper } from "./ppe";
 
 const testData = {
   Persons: [
@@ -20,6 +20,20 @@ const testData = {
                 Value: true,
               },
               Type: "MASK",
+            },
+            {
+              BoundingBox: {
+                Height: 0.3095385730266571,
+                Left: 0.2645637094974518,
+                Top: 0.29297786951065063,
+                Width: 0.1740061491727829,
+              },
+              Confidence: 98.30194854736328,
+              CoversBodyPart: {
+                Confidence: 79.82731628417969,
+                Value: true,
+              },
+              Type: "FOO",
             },
           ],
           Name: "FACE",
@@ -98,27 +112,56 @@ const testData = {
   ProtectiveEquipmentModelVersion: "1.0",
 };
 
-describe("ppe tests", () => {
-  test("left hand", () => {
-    const person = testData.Persons[0];
-    const got = leftHand(person);
-    expect(got.Success).toBeTruthy();
-  });
-  test("right hand", () => {
-    const person = testData.Persons[0];
-    const got = rightHand(person);
-    expect(got.Success).toBeTruthy();
-  });
-
-  test("face test", () => {
-    const person = testData.Persons[0];
-    const got = face(person);
-    expect(got.Success).toBeTruthy();
-  });
-
-  test("head test", () => {
-    const person = testData.Persons[0];
-    const got = head(person);
-    expect(got.Success).toBeTruthy();
+describe("ppe Mapper", () => {
+  test("maps with body parts and confidence", () => {
+    const mapped = testData.Persons.map(ppeMapper);
+    expect(mapped).toEqual([
+      {
+        boundingBox: {
+          Height: 0.7783375382423401,
+          Left: 0.062234796583652496,
+          Top: 0.20151133835315704,
+          Width: 0.7751060724258423,
+        },
+        id: 0,
+        results: [
+          {
+            type: "Mask",
+            confidence: 99.9,
+            bodyPart: "face",
+            coversBodyPart: true,
+            coversBodyPartConfidence: 79.8,
+          },
+          {
+            type: "Foo",
+            confidence: 99.9,
+            bodyPart: "face",
+            coversBodyPart: true,
+            coversBodyPartConfidence: 79.8,
+          },
+          {
+            type: "Helmet",
+            confidence: 99.9,
+            bodyPart: "head",
+            coversBodyPart: true,
+            coversBodyPartConfidence: 84.2,
+          },
+          {
+            type: "Glove",
+            confidence: 99.7,
+            bodyPart: "left hand",
+            coversBodyPart: true,
+            coversBodyPartConfidence: 100,
+          },
+          {
+            type: "Glove",
+            confidence: 99.8,
+            bodyPart: "right hand",
+            coversBodyPart: true,
+            coversBodyPartConfidence: 100,
+          },
+        ],
+      },
+    ]);
   });
 });

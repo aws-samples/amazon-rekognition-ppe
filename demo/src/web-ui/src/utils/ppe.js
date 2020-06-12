@@ -1,10 +1,24 @@
-const HEAD = "HEAD";
-const LEFT_HAND = "LEFT_HAND";
-const RIGHT_HAND = "RIGHT_HAND";
-const FACE = "FACE";
+const capitalize = (s) => s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
+const percentageToString = (percentage) => Math.floor(percentage * 10) / 10;
 
-export const ppeTest = (person) => {
-  const results = [head, face, leftHand, rightHand].map((test) => test(person));
+export const ppeMapper = (person) => {
+  const bodyParts = (person.BodyParts || []).filter(
+    (x) => x.EquipmentDetections && x.EquipmentDetections.length > 0
+  );
+
+  const results = bodyParts
+    .map((p) =>
+      p.EquipmentDetections.map((eq) => ({
+        bodyPart: p.Name.replace(/_/gi, " ").toLowerCase(),
+        confidence: percentageToString(p.Confidence),
+        type: capitalize(eq.Type),
+        coversBodyPart: eq.CoversBodyPart.Value,
+        coversBodyPartConfidence: percentageToString(
+          eq.CoversBodyPart.Confidence
+        ),
+      }))
+    )
+    .flat();
 
   return {
     id: person.Id,
@@ -12,35 +26,3 @@ export const ppeTest = (person) => {
     results,
   };
 };
-
-const getBodyPart = (person, bodyPart) =>
-  person.BodyParts.filter((p) => p.Name === bodyPart)[0];
-
-const hasProtection = (person, part) => {
-  const bodyPart = getBodyPart(person, part);
-  return (
-    bodyPart &&
-    bodyPart.EquipmentDetections &&
-    bodyPart.EquipmentDetections.length >= 1
-  );
-};
-
-export const head = (person) => ({
-  TestName: "Head Covered",
-  Success: hasProtection(person, HEAD),
-});
-
-export const leftHand = (person) => ({
-  TestName: "Left Hand Covered",
-  Success: hasProtection(person, LEFT_HAND),
-});
-
-export const rightHand = (person) => ({
-  TestName: "Right Hand Covered",
-  Success: hasProtection(person, RIGHT_HAND),
-});
-
-export const face = (person) => ({
-  TestName: "Face Covered",
-  Success: hasProtection(person, FACE),
-});

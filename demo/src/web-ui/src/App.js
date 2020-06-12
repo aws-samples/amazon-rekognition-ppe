@@ -6,7 +6,7 @@ import Webcam from "react-webcam";
 import { Alert, Col, Row } from "react-bootstrap";
 
 import gateway from "./utils/gateway";
-import { ppeTest } from "./utils/ppe";
+import { ppeMapper } from "./utils/ppe";
 import { isUndefined, formatErrorMessage } from "./utils";
 
 import CameraHelp from "./components/CameraHelp";
@@ -31,7 +31,7 @@ export default () => {
 
     try {
       const result = await gateway.processImage(b64Encoded);
-      const people = result.Persons.map(ppeTest);
+      const people = result.Persons.map(ppeMapper);
       setTestResults(people);
       if (iterating.current) setTimeout(getSnapshot, 300);
       else setTestResults([]);
