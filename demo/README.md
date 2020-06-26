@@ -58,6 +58,7 @@ The demo application is deployed as an [AWS CloudFormation](https://aws.amazon.c
    - **AdminEmail:** The email address you wish to setup as the initial user of this Amazon Rekognition PPE Demo deployment.
    - **CreateCloudFrontDistribution** (Default: true) Creates a CloudFront distribution for accessing the web interface of the solution.
    - **ResourcePrefix:** (Default: PPEDemo) Resource prefix to apply to resource names when creating statically named resources.
+   - **TopicArn:** (Default: false) When providing a SNS Topic, it sends SNS notifications for each body part detected.
 
    When completed, click _Next_
 

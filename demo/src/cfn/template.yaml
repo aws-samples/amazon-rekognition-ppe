@@ -10,6 +10,7 @@ Globals:
     Environment:
       Variables:
         REGION: !Ref AWS::Region
+        TOPIC_ARN: !Ref TopicArn
         VERSION: "0.11"
 
   Api:
@@ -77,9 +78,14 @@ Parameters:
     AllowedValues:
       - "true"
       - "false"
+  TopicArn:
+    Description: When providing a SNS Topic, it sends SNS notifications for each body part detected.
+    Type: String
+    Default: "false"
 
 Conditions:
   WithCloudFront: !Equals [!Ref CreateCloudFrontDistribution, "true"]
+  WithSNS: !Not [!Equals [!Ref TopicArn, "false"]]
 
 Outputs:
   api:
@@ -219,7 +225,7 @@ Resources:
                 Action: rekognition:DetectProtectiveEquipment
                 Resource: "*"
 
-  # # Lambdas
+  # Lambdas
 
   ProcessImageFunction:
     Type: AWS::Serverless::Function
@@ -240,7 +246,12 @@ Resources:
               Action:
                 - rekognition:DetectProtectiveEquipment
               Resource: "*"
-
+            - !If
+              - WithSNS
+              - Effect: Allow
+                Resource: !Ref TopicArn
+                Action: sns:Publish
+              - !Ref AWS::NoValue
   LambdaSetup:
     Type: AWS::Serverless::Function
     Properties:
