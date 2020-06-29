@@ -79,7 +79,7 @@ Parameters:
       - "true"
       - "false"
   TopicArn:
-    Description: When providing a SNS Topic Arn, it sends SNS notifications for each body part detected. The SNS Topic and the Demo need to be located in the same AWS Region.
+    Description: When an SNS Topic Arn is provided,  SNS notifications will be sent for each body part detected. The SNS Topic and the Demo need to be located in the same AWS Region.
     Type: String
     Default: "false"
 
