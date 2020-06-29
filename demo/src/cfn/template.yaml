@@ -11,7 +11,7 @@ Globals:
       Variables:
         REGION: !Ref AWS::Region
         TOPIC_ARN: !Ref TopicArn
-        VERSION: "0.11"
+        VERSION: "0.12"
 
   Api:
     EndpointConfiguration: REGIONAL
@@ -79,7 +79,7 @@ Parameters:
       - "true"
       - "false"
   TopicArn:
-    Description: When providing a SNS Topic, it sends SNS notifications for each body part detected.
+    Description: When providing a SNS Topic Arn, it sends SNS notifications for each body part detected. The SNS Topic and the Demo need to be located in the same AWS Region.
     Type: String
     Default: "false"
 
