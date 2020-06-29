@@ -10,7 +10,8 @@ Globals:
     Environment:
       Variables:
         REGION: !Ref AWS::Region
-        VERSION: "0.11"
+        TOPIC_ARN: !Ref TopicArn
+        VERSION: "0.12"
 
   Api:
     EndpointConfiguration: REGIONAL
@@ -77,9 +78,14 @@ Parameters:
     AllowedValues:
       - "true"
       - "false"
+  TopicArn:
+    Description: When an SNS Topic Arn is provided,  SNS notifications will be sent for each body part detected. The SNS Topic and the Demo need to be located in the same AWS Region.
+    Type: String
+    Default: "false"
 
 Conditions:
   WithCloudFront: !Equals [!Ref CreateCloudFrontDistribution, "true"]
+  WithSNS: !Not [!Equals [!Ref TopicArn, "false"]]
 
 Outputs:
   api:
@@ -219,7 +225,7 @@ Resources:
                 Action: rekognition:DetectProtectiveEquipment
                 Resource: "*"
 
-  # # Lambdas
+  # Lambdas
 
   ProcessImageFunction:
     Type: AWS::Serverless::Function
@@ -240,7 +246,12 @@ Resources:
               Action:
                 - rekognition:DetectProtectiveEquipment
               Resource: "*"
-
+            - !If
+              - WithSNS
+              - Effect: Allow
+                Resource: !Ref TopicArn
+                Action: sns:Publish
+              - !Ref AWS::NoValue
   LambdaSetup:
     Type: AWS::Serverless::Function
     Properties:

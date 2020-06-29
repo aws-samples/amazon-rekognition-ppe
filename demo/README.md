@@ -2,7 +2,7 @@
 
 This Demo shows how you can have a serverless architecture to process frames from cameras for PPE detection.
 
-This solution includes a web app that uses a webcam to extract frames and send them to an AWS API Gateway. The API Gateway then calls a AWS Lambda that interacts with Amazon Rekognition and calls the `DetectProtectiveEquipment` endpoint.
+This solution includes a web app that uses a webcam to extract frames and send them to an AWS API Gateway. The API Gateway then calls a AWS Lambda that interacts with Amazon Rekognition and calls the `DetectProtectiveEquipment` endpoint. When any protective equipment is detected the UI Interface shows the equipment name, its confidence level, and whether it covers the body part or not. Optionally, it is possible to configure an Amazon SNS Topic to allow subscribers to be notified of any detection.
 
 ### Index
 
@@ -40,6 +40,7 @@ The demo application is deployed as an [AWS CloudFormation](https://aws.amazon.c
 > - [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/)
 > - [Amazon Cognito Pricing](https://aws.amazon.com/cognito/pricing/)
 > - [Amazon CloudFront Pricing](https://aws.amazon.com/cloudfront/pricing/)
+> - [Amazon SNS Pricing](https://aws.amazon.com/sns/pricing/)
 
 1. Deploy the latest CloudFormation template by following the link below for your preferred AWS region:
 
@@ -58,6 +59,7 @@ The demo application is deployed as an [AWS CloudFormation](https://aws.amazon.c
    - **AdminEmail:** The email address you wish to setup as the initial user of this Amazon Rekognition PPE Demo deployment.
    - **CreateCloudFrontDistribution** (Default: true) Creates a CloudFront distribution for accessing the web interface of the solution.
    - **ResourcePrefix:** (Default: PPEDemo) Resource prefix to apply to resource names when creating statically named resources.
+   - **TopicArn:** (Default: false) When an SNS Topic Arn is provided,  SNS notifications will be sent for each body part detected. The SNS Topic and the Demo need to be located in the same AWS Region.
 
    When completed, click _Next_
 
