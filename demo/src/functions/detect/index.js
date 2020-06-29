@@ -53,18 +53,13 @@ exports.processHandler = async (event) => {
           )
           .flat();
 
-        return { id: person.id, results };
-      });
-
-      console.log(people);
+        return { id: person.Id, results };
+      }).filter((person) => person.results.length > 0);
 
       await Promise.all(
         people.map((person) =>
           sns
-            .publish({
-              Message: JSON.stringify(person),
-              TopicArn: TOPIC_ARN,
-            })
+            .publish({ Message: JSON.stringify(person), TopicArn: TOPIC_ARN })
             .promise()
         )
       );

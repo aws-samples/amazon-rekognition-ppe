@@ -40,6 +40,7 @@ The demo application is deployed as an [AWS CloudFormation](https://aws.amazon.c
 > - [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/)
 > - [Amazon Cognito Pricing](https://aws.amazon.com/cognito/pricing/)
 > - [Amazon CloudFront Pricing](https://aws.amazon.com/cloudfront/pricing/)
+> - [Amazon SNS Pricing](https://aws.amazon.com/sns/pricing/)
 
 1. Deploy the latest CloudFormation template by following the link below for your preferred AWS region:
 
