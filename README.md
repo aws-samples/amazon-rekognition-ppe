@@ -16,30 +16,16 @@ maintain workplace compliance requirements while protecting the privacy of emplo
 
 To detect personal protective equipment in an image you call the DetectProtectiveEquipment API and pass an input image. You can provide the input image (JPG or PNG format) either as raw bytes or as an object stored in Amazon S3 bucket. The response of DetectProtectiveEquipment API is a JSON structure that include the people detected in the image, the body parts (face, head, left-hand, right-hand) where PPE is detected, and the type of PPE detected. The type of PPE detected are masks, gloves and helmets. For each identified element, Amazon Rekognition also returns additional information such as a confidence score and bounding box.
 
-## Navigate
+# Navigate
 
-- [Demo](/demo)
-- [Frame Extraction](/frame-extraction)
-- [Smart Edge](/smart-edge)
-- [Stored Video](/stored-video)
-- [Streaming Video](/streaming-video)
+|                                       |                                                                                                           |
+| ------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| [Demo](/demo)                         | Web app that uses a webcam to extract frames and process them for PPE detection                           |
+| [Frame Extraction](/frame-extraction) | Script for using lightweight components in the edge to extract frames from cameras at a desired frequency |
+| [Smart Edge](/smart-edge)             | Script leveraging Tensorflow to detect faces on frames to be processed using Amazon Rekognition           |
+| [Stored Video](/stored-video)         | Script for frame analysis to be used with stored videos                                                   |
+| [Streaming Video](/streaming-video)   | TODO                                                                                                      |
 
-### [Demo](/demo)
+# License Summary
 
-TODO
-
-### [Frame Extraction](/frame-extraction)
-
-TODO
-
-### [Smart Edge](/smart-edge)
-
-TODO
-
-### [Stored Video](/stored-video)
-
-TODO
-
-### [Streaming Video](/streaming-video)
-
-TODO
+This project is licensed under the Apache-2.0 License.
