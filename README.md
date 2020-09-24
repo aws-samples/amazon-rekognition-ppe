@@ -1,4 +1,4 @@
-# Detect Protective Equipement with Rekognition
+# Detect Protective Equipment with Rekognition
 
 Amazon Rekognition is a machine learning based image and video analysis service that enables developers to
 build smart applications using computer vision. Developers can quickly take advantage of different APIs to
