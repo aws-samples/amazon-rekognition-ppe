@@ -1,5 +1,6 @@
 const capitalize = (s) => s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
 const percentageToString = (percentage) => Math.floor(percentage * 10) / 10;
+const formatText = (t) => t.replace(/_/gi, " ").toLowerCase();
 
 export const ppeMapper = (person) => {
   const bodyParts = (person.BodyParts || []).filter(
@@ -9,9 +10,9 @@ export const ppeMapper = (person) => {
   const results = bodyParts
     .map((p) =>
       p.EquipmentDetections.map((eq) => ({
-        bodyPart: p.Name.replace(/_/gi, " ").toLowerCase(),
+        bodyPart: formatText(p.Name),
         confidence: percentageToString(p.Confidence),
-        type: capitalize(eq.Type),
+        type: capitalize(formatText(eq.Type)),
         coversBodyPart: eq.CoversBodyPart.Value,
         coversBodyPartConfidence: percentageToString(
           eq.CoversBodyPart.Confidence
