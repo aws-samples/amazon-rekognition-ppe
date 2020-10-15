@@ -30,7 +30,7 @@ export default ({ person, webcamCoordinates }) => (
             <span className="confidence">{r.confidence}%</span>
           </ListGroup.Item>
           <ListGroup.Item key={index}>
-            {r.type} covers {r.bodyPart}:{" "}
+            {r.type} on {r.bodyPart}:{" "}
             <Icon type={r.coversBodyPart ? "success" : "fail"} />{" "}
             <span style={{ color: r.coversBodyPart ? "#1d8102" : "#d13212" }}>
               {r.coversBodyPart.toString()}
