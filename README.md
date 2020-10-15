@@ -18,12 +18,9 @@ To detect personal protective equipment in an image you call the DetectProtectiv
 
 # Navigate
 
-|                                       |                                                                                                           |
-| ------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| [Demo](/demo)                         | Web app that uses a webcam to extract frames and process them for PPE detection                           |
-| [Frame Extraction](/frame-extraction) | Script for using lightweight components at the edge to extract frames from cameras at a desired frequency |
-| [Smart Edge](/smart-edge)             | Script leveraging Tensorflow to detect faces in frames to be processed using Amazon Rekognition           |
-| [Stored Video](/stored-video)         | Script for frame analysis to be used with stored videos                                                   |
+|               |                                                                                 |
+| ------------- | ------------------------------------------------------------------------------- |
+| [Demo](/demo) | Web app that uses a webcam to extract frames and process them for PPE detection |
 
 # License Summary
 
