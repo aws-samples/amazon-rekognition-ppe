@@ -115,53 +115,6 @@ const testData = {
 describe("ppe Mapper", () => {
   test("maps with body parts and confidence", () => {
     const mapped = testData.Persons.map(ppeMapper);
-    expect(mapped).toEqual([
-      {
-        boundingBox: {
-          Height: 0.7783375382423401,
-          Left: 0.062234796583652496,
-          Top: 0.20151133835315704,
-          Width: 0.7751060724258423,
-        },
-        id: 0,
-        results: [
-          {
-            type: "Mask",
-            confidence: 99.9,
-            bodyPart: "face",
-            coversBodyPart: true,
-            coversBodyPartConfidence: 79.8,
-          },
-          {
-            type: "Foo",
-            confidence: 99.9,
-            bodyPart: "face",
-            coversBodyPart: true,
-            coversBodyPartConfidence: 79.8,
-          },
-          {
-            type: "Helmet",
-            confidence: 99.9,
-            bodyPart: "head",
-            coversBodyPart: true,
-            coversBodyPartConfidence: 84.2,
-          },
-          {
-            type: "Glove",
-            confidence: 99.7,
-            bodyPart: "left hand",
-            coversBodyPart: true,
-            coversBodyPartConfidence: 100,
-          },
-          {
-            type: "Glove",
-            confidence: 99.8,
-            bodyPart: "right hand",
-            coversBodyPart: true,
-            coversBodyPartConfidence: 100,
-          },
-        ],
-      },
-    ]);
+    expect(mapped).toMatchSnapshot();
   });
 });

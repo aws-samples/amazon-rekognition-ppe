@@ -17,6 +17,7 @@ export const ppeMapper = (person) => {
         coversBodyPartConfidence: percentageToString(
           eq.CoversBodyPart.Confidence
         ),
+        boundingBox: eq.BoundingBox,
       }))
     )
     .flat();

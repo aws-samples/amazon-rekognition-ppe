@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ppe Mapper maps with body parts and confidence 1`] = `
+Array [
+  Object {
+    "boundingBox": Object {
+      "Height": 0.7783375382423401,
+      "Left": 0.062234796583652496,
+      "Top": 0.20151133835315704,
+      "Width": 0.7751060724258423,
+    },
+    "id": 0,
+    "results": Array [
+      Object {
+        "bodyPart": "face",
+        "boundingBox": Object {
+          "Height": 0.3095385730266571,
+          "Left": 0.2645637094974518,
+          "Top": 0.29297786951065063,
+          "Width": 0.1740061491727829,
+        },
+        "confidence": 99.9,
+        "coversBodyPart": true,
+        "coversBodyPartConfidence": 79.8,
+        "type": "Mask",
+      },
+      Object {
+        "bodyPart": "face",
+        "boundingBox": Object {
+          "Height": 0.3095385730266571,
+          "Left": 0.2645637094974518,
+          "Top": 0.29297786951065063,
+          "Width": 0.1740061491727829,
+        },
+        "confidence": 99.9,
+        "coversBodyPart": true,
+        "coversBodyPartConfidence": 79.8,
+        "type": "Foo",
+      },
+      Object {
+        "bodyPart": "head",
+        "boundingBox": Object {
+          "Height": 0.37994688749313354,
+          "Left": 0.342035174369812,
+          "Top": 0.16647937893867493,
+          "Width": 0.2135859727859497,
+        },
+        "confidence": 99.9,
+        "coversBodyPart": true,
+        "coversBodyPartConfidence": 84.2,
+        "type": "Helmet",
+      },
+      Object {
+        "bodyPart": "left hand",
+        "boundingBox": Object {
+          "Height": 0.33101364970207214,
+          "Left": 0.5892353653907776,
+          "Top": 0.23174917697906494,
+          "Width": 0.18587328493595123,
+        },
+        "confidence": 99.7,
+        "coversBodyPart": true,
+        "coversBodyPartConfidence": 100,
+        "type": "Glove",
+      },
+      Object {
+        "bodyPart": "right hand",
+        "boundingBox": Object {
+          "Height": 0.32489436864852905,
+          "Left": 0.20085042715072632,
+          "Top": 0.2759649455547333,
+          "Width": 0.18243715167045593,
+        },
+        "confidence": 99.8,
+        "coversBodyPart": true,
+        "coversBodyPartConfidence": 100,
+        "type": "Glove",
+      },
+    ],
+  },
+]
+`;
