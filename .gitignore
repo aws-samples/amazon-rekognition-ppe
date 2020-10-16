@@ -6,7 +6,7 @@ dist
 frontend.zip
 node_modules/*
 npm-debug.log*
-demo/src/functions/detect/aws-sdk/node_modules
+demo/src/functions/detect/node_modules
 demo/src/functions/setup/node_modules
 demo/src/web-ui/node_modules
 demo/src/web-ui/build
