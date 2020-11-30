@@ -92,11 +92,11 @@ To remove the application open the AWS CloudFormation Console, click the PPE Dem
 
 ### Making changes to the code and customization
 
-The [contributing guidelines](CONTRIBUTING.md) contains some instructions about how to run the front-end locally and make changes to the back-end stack.
+The [contributing guidelines](../CONTRIBUTING.md) contains some instructions about how to run the front-end locally and make changes to the back-end stack.
 
 ## Contributing
 
-Contributions are more than welcome. Please read the [code of conduct](CODE_OF_CONDUCT.md) and the [contributing guidelines](CONTRIBUTING.md).
+Contributions are more than welcome. Please read the [code of conduct](../CODE_OF_CONDUCT.md) and the [contributing guidelines](../CONTRIBUTING.md).
 
 ## License Summary
 
