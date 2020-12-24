@@ -14,7 +14,7 @@
     "postinstall": "cd demo/src/web-ui && npm i && cd ../functions/setup && npm i && cd ../detect/ && npm i",
     "start": "cd demo/src/web-ui && npm start",
     "tag": "git tag `npm run echo-version --silent`",
-    "test": "cfn-lint templates/template.yaml",
+    "test": "cfn-lint templates/template.yaml && cd demo/src/web-ui && npm t",
     "webui-build": "cd demo/src/web-ui && npm run build",
     "webui-package": "cd demo/src/web-ui/build && zip -r ../../../../frontend.zip .",
     "zip": "zip -r `npm run echo-version --silent`.zip -@ < ci/include.lst"
