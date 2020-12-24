@@ -1,7 +1,7 @@
 import React from "react";
 import { Alert } from "react-bootstrap";
 
-export default () => (
+const SettingsHelp = () => (
   <Alert variant="danger">
     There is an issue with your settings configuration. If you are running the
     front-end code from your local machine, you may need to follow{" "}
@@ -15,3 +15,5 @@ export default () => (
     .
   </Alert>
 );
+
+export default SettingsHelp;

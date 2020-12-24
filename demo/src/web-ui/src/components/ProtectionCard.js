@@ -4,7 +4,7 @@ import { Card, ListGroup } from "react-bootstrap";
 import BoundingBox from "./BoundingBox";
 import Icon from "./Icon";
 
-export default ({ person, webcamCoordinates }) => (
+const ProtectionCard = ({ person, webcamCoordinates }) => (
   <Card style={{ marginTop: "20px", textAlign: "left" }}>
     <Card.Header>{`Person #${person.id}`}</Card.Header>
     <BoundingBox
@@ -38,3 +38,5 @@ export default ({ person, webcamCoordinates }) => (
     </Card.Body>
   </Card>
 );
+
+export default ProtectionCard;

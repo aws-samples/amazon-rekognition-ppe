@@ -8,7 +8,7 @@ import RekognitionButton from "./RekognitionButton";
 
 import "./Header.css";
 
-export default ({ addUser, readyToStream, signedIn, toggleRekognition }) => {
+const Header = ({ readyToStream, signedIn, toggleRekognition }) => {
   const [authError, setAuthError] = useState(null);
   const [userEmail, setUserEmail] = useState(undefined);
 
@@ -61,3 +61,5 @@ export default ({ addUser, readyToStream, signedIn, toggleRekognition }) => {
     </Navbar>
   );
 };
+
+export default Header;
