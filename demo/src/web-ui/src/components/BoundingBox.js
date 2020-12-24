@@ -1,6 +1,11 @@
 import React from "react";
 
-export default ({ coordinates, label, color = "#000", webcamCoordinates }) => (
+const BoundingBox = ({
+  coordinates,
+  label,
+  color = "#000",
+  webcamCoordinates,
+}) => (
   <div
     style={{
       height: webcamCoordinates.height * coordinates.Height,
@@ -16,3 +21,5 @@ export default ({ coordinates, label, color = "#000", webcamCoordinates }) => (
     <span style={{ backgroundColor: color, padding: "2px" }}>{label}</span>
   </div>
 );
+
+export default BoundingBox;

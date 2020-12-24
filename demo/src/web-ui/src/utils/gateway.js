@@ -1,7 +1,9 @@
 import request from "./request";
 
-export default {
+const gateway = {
   processImage(image) {
     return request("/process", "post", { image });
   },
 };
+
+export default gateway;

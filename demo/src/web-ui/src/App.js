@@ -14,7 +14,7 @@ import ProtectionSummary from "./components/ProtectionSummary";
 import Header from "./components/Header";
 import SettingsHelp from "./components/SettingsHelp";
 
-export default () => {
+const App = () => {
   const [authState, setAuthState] = useState(undefined);
   const [errorDetails, setErrorDetails] = useState(undefined);
   const [readyToStream, setReadyToStream] = useState(false);
@@ -145,3 +145,5 @@ export default () => {
     </div>
   );
 };
+
+export default App;
