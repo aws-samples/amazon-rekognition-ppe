@@ -11,7 +11,7 @@ Globals:
       Variables:
         REGION: !Ref AWS::Region
         TOPIC_ARN: !Ref TopicArn
-        VERSION: "0.18"
+        VERSION: "0.19"
 
   Api:
     EndpointConfiguration: REGIONAL
