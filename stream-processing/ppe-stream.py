@@ -11,7 +11,7 @@ def processFrame(videoStreamUrl):
         if hasFrame:
             session = boto3.session.Session()
             rekognition = session.client('rekognition')
-            response = rekognition. detect_protective_equipment(
+            response = rekognition.detect_protective_equipment(
                     Image={
                         'Bytes': imageBytes.tobytes(),
                     }
