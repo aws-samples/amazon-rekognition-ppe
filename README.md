@@ -10,10 +10,33 @@ You can also aggregate the PPE detection results and analyze them by time and pl
 
 With Amazon Rekognition PPE detection, you receive a detailed analysis of an image, which includes bounding boxes and confidence scores for persons (up to 15 per image) and PPE detected, confidence scores for the body parts detected, and Boolean values and confidence scores for whether the PPE covers the corresponding body part. The following image shows an example of PPE bounding boxes for head cover, hand covers, and face cover annotated using the analysis provided by the Amazon Rekognition PPE detection feature.
 
+## [Demo]()
+
+The PPE Demo shows how you can have a serverless architecture to process frames from cameras for PPE detection.
+
+## Samples
+
+This repository contains Python samples for different usecases of the Rekognition Detect PPE Operation.
+
+### [Frame Extraction](frame-extraction/fextractor.py)
+
+This sample demonstrates how to extract frames from a video and upload them to an S3 Bucket
+
+### [Image Detection](image-detection/ppe-image.py)
+
+This sample demonstrates how to detect protective equipment in an image.
+
+### [Stored Video](stored-video/frame_analysis.py)
+
+This sample demonstrates how to detect protective equipment in a stored video
+
+### [Stream Processing](stream-processing/ppe-stream.py)
+
+This sample demonstrates how to detect protective equipment on a streamed video
+
 ## Amazon Rekognition DetectProtectiveEquipment API
 
 To detect PPE in an image, you call the DetectProtectiveEquipment API and pass an input image. You can provide the input image (in JPG or PNG format) either as raw bytes or as an object stored in an Amazon Simple Storage Service (Amazon S3) bucket. You can optionally use the SummarizationAttributes (ProtectiveEquipmentSummarizationAttributes) input parameter to request summary information about persons that are wearing the required PPE, not wearing the required PPE, or are indeterminate.
-
 
 # Navigate
 
