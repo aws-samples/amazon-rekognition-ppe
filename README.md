@@ -38,12 +38,6 @@ This sample demonstrates how to detect protective equipment on a streamed video
 
 To detect PPE in an image, you call the DetectProtectiveEquipment API and pass an input image. You can provide the input image (in JPG or PNG format) either as raw bytes or as an object stored in an Amazon Simple Storage Service (Amazon S3) bucket. You can optionally use the SummarizationAttributes (ProtectiveEquipmentSummarizationAttributes) input parameter to request summary information about persons that are wearing the required PPE, not wearing the required PPE, or are indeterminate.
 
-# Navigate
-
-|               |                                                                                 |
-| ------------- | ------------------------------------------------------------------------------- |
-| [Demo](/demo) | Web app that uses a webcam to extract frames and process them for PPE detection |
-
 # License Summary
 
 This library is licensed under the MIT-0 License. See the LICENSE file.
