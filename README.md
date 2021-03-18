@@ -10,7 +10,7 @@ You can also aggregate the PPE detection results and analyze them by time and pl
 
 With Amazon Rekognition PPE detection, you receive a detailed analysis of an image, which includes bounding boxes and confidence scores for persons (up to 15 per image) and PPE detected, confidence scores for the body parts detected, and Boolean values and confidence scores for whether the PPE covers the corresponding body part. The following image shows an example of PPE bounding boxes for head cover, hand covers, and face cover annotated using the analysis provided by the Amazon Rekognition PPE detection feature.
 
-## [Demo]()
+## [Demo](/demo)
 
 The PPE Demo shows how you can have a serverless architecture to process frames from cameras for PPE detection.
 
