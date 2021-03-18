@@ -5,14 +5,13 @@ import json
 import boto3
 import cv2
 import math
-import io
 
 def analyzeVideo():
-    videoFile = "video file"
+    videoFile = "ppe-video.mov"
 
 
     rekognition = boto3.client('rekognition')        
-    people = []    
+    ppeLabels = []    
     cap = cv2.VideoCapture(videoFile)
     frameRate = cap.get(5) #frame rate
     while(cap.isOpened()):
@@ -33,12 +32,12 @@ def analyzeVideo():
             
             for person in response["Persons"]:
                 person["Timestamp"] = (frameId/frameRate)*1000
-                people.append(person)
+                ppeLabels.append(person)
     
-    print(people)
+    print(ppeLabels)
 
     with open(videoFile + ".json", "w") as f:
-        f.write(json.dumps(people)) 
+        f.write(json.dumps(ppeLabels)) 
 
     cap.release()
 
