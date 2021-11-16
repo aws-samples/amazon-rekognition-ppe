@@ -4,6 +4,6 @@
   "private": true,
   "main": "index.js",
   "dependencies": {
-    "aws-sdk": "^2.773.0"
+    "aws-sdk": "^2.814.0"
   }
 }
