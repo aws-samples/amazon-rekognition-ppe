@@ -4,14 +4,14 @@ Transform: AWS::Serverless-2016-10-31
 
 Globals:
   Function:
-    Runtime: nodejs12.x
+    Runtime: nodejs14.x
     MemorySize: 128
     Timeout: 120
     Environment:
       Variables:
         REGION: !Ref AWS::Region
         TOPIC_ARN: !Ref TopicArn
-        VERSION: "0.25"
+        VERSION: "1.0"
 
   Api:
     EndpointConfiguration: REGIONAL
@@ -269,7 +269,6 @@ Resources:
           COLLECTION_ID: !Ref ResourcePrefix
           CREATE_CLOUDFRONT_DISTRIBUTION: !Ref CreateCloudFrontDistribution
           FROM_BUCKET: !Sub solution-builders-${AWS::Region}
-          REGION: !Ref AWS::Region
           TO_BUCKET: !Ref WebUIBucket
       Timeout: 900
       Policies:
